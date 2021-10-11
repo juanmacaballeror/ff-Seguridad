@@ -47,53 +47,54 @@ body {
 }
 
 .container{
-  width: 100%;
-  // height: 800px;
+  // width: 100%;
+  height: 98vh;
   
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 90% 1fr;
+  // grid-template-rows: 1fr 90% 1fr;
+  grid-template-rows: auto 1fr auto;
 
-  justify-items: center;
+  //justify-items: center;
   //align-items: center;
   // place items center es lo mismo que justify-items: center y align-items: center
   // place-items: center;
    text-align:center;
 
   // justify-content: center;
-  //  align-content: center;
+    align-content: center;
  
   
-  grid-template-areas: "cabecera"
-                       "cuerpo"
+  grid-template-areas: "header"
+                       "content"
                        "footer";
 }
 
 .item{
   border:2px solid black;
   color:white;
-
-  //  display:flex;
-  //  justify-content: center;
-  //  align-items: center;
 }
 
 .item-cuerpo{
-  width:90%;
-  grid-area:cuerpo;
+  width:85%;
+  justify-self: center;
+  grid-area:content;
   background-color: yellow;
   // grid-gap: 2rem;
+  @media only screen and (max-width: 768px) {
+ 
+    width:100%;
+ 
+  }
 }
 
 .item-cabecera{
-  width:100%;
-  grid-area:cabecera;
+  grid-area:header;
   background-color:red;
   // grid-gap: 2rem;
 }
 
 .item-footer{
-  width:100%;
   grid-area:footer;
   background-color: blue;
   // grid-gap: 2rem;
