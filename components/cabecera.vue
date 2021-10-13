@@ -1,12 +1,12 @@
 <template>
-  <div>
-    <header>
+  <div class="contenedor">
       <div class="cabecera cabecera-format">
          <div class="cabecera__tamanio cabecera__rotate">F</div>
-         <div class="cabecera__tamanio cabecera__secondF">F</div> 
+         <div class="cabecera__tamanio">F</div> 
          <div class="cabecera__seguridad">Seguridad</div> 
-      </div>         
-    </header>
+         <div class="cabecera__header-end"> Nuestro compromiso es su seguridad</div>
+      </div>  
+       
   </div>
 </template>
 <script>
@@ -17,17 +17,22 @@
 
 <style lang="scss" scoped>
 
-.cabecera{
-  display:flex;
-  flex-wrap: nowrap;
-  justify-content:flex-start;
-  align-items: flex-end;
-  align-content:flex-end;
-  grid-area:header;
+.contenedor{
+ /* Flexbox */
+	display:flex;
+
   background-image:linear-gradient(to right bottom, $color-grey-dark-1, $color-grey-light-1);
   color:$color-white;
+  
+  grid-area:header;  
+}
+
+.cabecera{
+  /* Flexbox */
+  width: 100%;
+	display: flex;
+
   font-family: "Cabin Sketch";
-  // position:relative;
   
   &-format{
       padding:2rem;
@@ -37,18 +42,25 @@
       font-size:2rem;
   }
 
-   &__rotate{
-     transform: scale(-1, 1);
-   }
-   &__tamanio{
-      font-size:5rem;
-   }
+  &__rotate{     
+    transform: scale(-1, 1);
+  }
 
-  //  &__seguridad{
-  //    margin-top:1rem;
-  //  }
-  
-  
+  &__tamanio{   
+    font-size:5rem;
+  }
+
+  &__seguridad{
+   //margin-top:1rem;
+  }
+
+  &__header-end{
+    margin-left: auto;
+    // font-family:'Styles';
+    font-size:1.5rem;
+    text-transform: capitalize;
+  }
 }
+
 
 </style>
