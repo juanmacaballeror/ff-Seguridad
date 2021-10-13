@@ -1,12 +1,6 @@
 <template>
   <div class="container">
-    <div class="item item-cabecera">
-      <header>
-      <h1>
-        cabecera
-      </h1>
-     </header>
-    </div>
+    <app-cabecera></app-cabecera>
     <div class="item item-cuerpo">
       <Nuxt/>
     </div>
@@ -24,7 +18,7 @@
 export default {}
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 *,
 *::before,
@@ -82,17 +76,15 @@ body {
   background-color: yellow;
   // grid-gap: 2rem;
   @media only screen and (max-width: 768px) {
- 
     width:100%;
- 
   }
 }
 
-.item-cabecera{
-  grid-area:header;
-  background-color:red;
-  // grid-gap: 2rem;
-}
+// .item-cabecera{
+//   grid-area:header;
+//   background-color:red;
+//   // grid-gap: 2rem;
+// }
 
 .item-footer{
   grid-area:footer;
