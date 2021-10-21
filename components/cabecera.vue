@@ -3,10 +3,20 @@
       <div class="cabecera cabecera-format">
          <div class="cabecera__tamanio cabecera__rotate">F</div>
          <div class="cabecera__tamanio">F</div> 
-         <div class="cabecera__seguridad">Seguridad</div> 
-         <div class="cabecera__header-end"> Nuestro compromiso es su seguridad</div>
-      </div>  
-       
+         <div>Seguridad</div> 
+         <nav class="cabecera__nav">
+            <input type="checkbox" id="checkbox_toggle" />
+            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+            <div class="cabecera__menu">
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><a href="#">Qué hacemos</a></li>
+                <li><a href="#">Nuestros clientes</a></li>
+                <li><a href="#">Contacto</a></li>
+            </div>
+         </nav>
+         <!-- <div class="cabecera__header-end"> Nuestro compromiso es su seguridad</div> -->
+      </div>    
+      <!-- <div class="cabecera__header-end"> Nuestro compromiso es su seguridad</div>            -->
   </div>
 </template>
 <script>
@@ -17,6 +27,26 @@
 
 <style lang="scss" scoped>
 
+input[type=checkbox]{
+  display: none;
+
+  @media only screen and (max-width: 900px) {
+    &:checked ~ .cabecera__menu{
+      display: block;
+    }
+  }
+} 
+.hamburger {
+  display: none;
+  font-size: 24px;
+  user-select: none;
+
+  @media only screen and (max-width: 900px) {
+      display: block;
+  }
+  
+}
+
 .contenedor{
  /* Flexbox */
 	display:flex;
@@ -25,6 +55,23 @@
   color:$color-white;
   
   grid-area:header;  
+}
+
+li {
+ list-style: none;
+}
+
+a {
+ text-decoration: none;
+ color:$color-white;
+
+ &:hover{
+   color: black;
+ }
+ 
+ &:active{
+    color:black;
+ }
 }
 
 .cabecera{
@@ -42,6 +89,50 @@
       font-size:2rem;
   }
 
+  &__menu{
+    display:flex;
+    gap:3rem;
+    justify-content: center;
+    align-content: center;
+    color: $color-white;
+
+    // @media only screen and (max-width: 768px) {
+    //   gap:0;
+    // }
+     @media only screen and (max-width: 900px) {
+  
+        display:none;
+        position: absolute;
+        background-color:black;
+        right: 0;
+        left: 0;
+        text-align: center;
+        padding: 16px 0;
+        // clear: none;
+        // float: right;
+         max-height: none;
+      
+
+      & li:hover{
+          display: inline-block;
+          background-color:#4c9e9e;
+          transition: 0.3s ease;
+      } 
+
+    }
+  }
+
+  &__nav{
+    margin-left: auto;
+    font-family: 'Homemade Apple', cursive;
+    font-size:1.5rem;
+    text-transform: capitalize;
+
+    // @media only screen and (max-width: 900px) {
+    //   position:relative;
+    // }
+ }
+
   &__rotate{     
     transform: scale(-1, 1);
   }
@@ -50,17 +141,12 @@
     font-size:5rem;
   }
 
-  &__seguridad{
-   //margin-top:1rem;
-  }
-
-  &__header-end{
-    margin-left: auto;
-    // font-family:'Styles';
-    font-size:1.5rem;
-    text-transform: capitalize;
-  }
+  // &__header-end{
+  //   margin-left: auto;
+  //   font-family: 'Homemade Apple', cursive;
+  //   font-size:1.5rem;
+  //   text-transform: capitalize;
+  // }
 }
-
 
 </style>

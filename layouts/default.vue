@@ -4,13 +4,7 @@
     <div class="item item-cuerpo">
       <Nuxt/>
     </div>
-    <div class="item item-footer">
-      <footer>
-        <h1>
-          footer
-          </h1>      
-      </footer>
-    </div>
+    <app-footer></app-footer>
   </div>
 </template>
 
@@ -41,23 +35,13 @@ body {
 }
 
 .container{
-  // width: 100%;
-  height: 98vh;
+  height: 100vh;
   
   display: grid;
   grid-template-columns: 1fr;
-  // grid-template-rows: 1fr 90% 1fr;
   grid-template-rows: auto 1fr auto;
-
-  //justify-items: center;
-  //align-items: center;
-  // place items center es lo mismo que justify-items: center y align-items: center
-  // place-items: center;
-   text-align:center;
-
-  // justify-content: center;
-    align-content: center;
- 
+  text-align:center;
+  align-content: center;
   
   grid-template-areas: "header"
                        "content"
@@ -77,19 +61,8 @@ body {
   // grid-gap: 2rem;
   @media only screen and (max-width: 768px) {
     width:100%;
+    heigth:100%;
   }
-}
-
-// .item-cabecera{
-//   grid-area:header;
-//   background-color:red;
-//   // grid-gap: 2rem;
-// }
-
-.item-footer{
-  grid-area:footer;
-  background-color: blue;
-  // grid-gap: 2rem;
 }
 
 </style>
