@@ -59,6 +59,10 @@ input[type=checkbox]{
 
 li {
  list-style: none;
+
+  @media only screen and (max-width: 900px) {
+    margin-top:4rem;
+  }
 }
 
 a {
@@ -96,29 +100,23 @@ a {
     align-content: center;
     color: $color-white;
 
-    // @media only screen and (max-width: 768px) {
-    //   gap:0;
-    // }
      @media only screen and (max-width: 900px) {
-  
         display:none;
         position: absolute;
-        background-color:black;
+        background-image:linear-gradient(to right bottom, $color-black, $color-white);
         right: 0;
         left: 0;
+        top:6rem;
         text-align: center;
-        padding: 16px 0;
-        // clear: none;
-        // float: right;
-         max-height: none;
+        padding:2rem 0;
+        height: 100vh;
       
-
       & li:hover{
           display: inline-block;
           background-color:#4c9e9e;
           transition: 0.3s ease;
+           padding:2rem 0;   
       } 
-
     }
   }
 
@@ -127,10 +125,6 @@ a {
     font-family: 'Homemade Apple', cursive;
     font-size:1.5rem;
     text-transform: capitalize;
-
-    // @media only screen and (max-width: 900px) {
-    //   position:relative;
-    // }
  }
 
   &__rotate{     
@@ -141,12 +135,6 @@ a {
     font-size:5rem;
   }
 
-  // &__header-end{
-  //   margin-left: auto;
-  //   font-family: 'Homemade Apple', cursive;
-  //   font-size:1.5rem;
-  //   text-transform: capitalize;
-  // }
 }
 
 </style>
