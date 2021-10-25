@@ -5,7 +5,7 @@
          <div class="cabecera__tamanio">F</div> 
          <div>Seguridad</div> 
          <nav class="cabecera__nav">
-            <input type="checkbox" id="checkbox_toggle" />
+            <input type="checkbox"  class="cabecera__checkbox"  id="checkbox_toggle" />
             <label for="checkbox_toggle" class="hamburger">&#9776;</label>
             <div class="cabecera__menu">
                 <li><a href="#">Sobre nosotros</a></li>
@@ -32,19 +32,35 @@ input[type=checkbox]{
 
   @media only screen and (max-width: 900px) {
     &:checked ~ .cabecera__menu{
-      display: block;
+      // display: block;
+      display: inline-grid;
     }
+
+    // &:checked ~ .hamburger {
+    //     background-color: transparent;
+    // }
+
+    // &:checked ~ .hamburger {
+    //     top: 0;
+    //     transform: rotate(135deg);
+    // }
+    //  &:not(:checked) ~ .hamburger {
+    //     top: 0;
+    //     //transform: rotate(-135deg);
+    // }
+   
   }
 } 
 .hamburger {
   display: none;
-  font-size: 24px;
-  user-select: none;
-
+  position: relative;
+  
   @media only screen and (max-width: 900px) {
       display: block;
+      //position:absolute;
+      font-size: 2.5rem;
+      user-select: none;
   }
-  
 }
 
 .contenedor{
@@ -61,7 +77,9 @@ li {
  list-style: none;
 
   @media only screen and (max-width: 900px) {
-    margin-top:4rem;
+    &:not(:first-child){
+      margin-top:4rem;
+    }
   }
 }
 
@@ -70,12 +88,17 @@ a {
  color:$color-white;
 
  &:hover{
+   font-size:2rem;
    color: black;
  }
- 
- &:active{
-    color:black;
+
+ &:focus{
+   color: black;
  }
+
+  @media only screen and (max-width: 900px) {
+    font-size:3rem;
+  }
 }
 
 .cabecera{
@@ -110,13 +133,6 @@ a {
         text-align: center;
         padding:2rem 0;
         height: 100vh;
-      
-      & li:hover{
-          display: inline-block;
-          background-color:#4c9e9e;
-          transition: 0.3s ease;
-           padding:2rem 0;   
-      } 
     }
   }
 
@@ -125,6 +141,7 @@ a {
     font-family: 'Homemade Apple', cursive;
     font-size:1.5rem;
     text-transform: capitalize;
+  
  }
 
   &__rotate{     
