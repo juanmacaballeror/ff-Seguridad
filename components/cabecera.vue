@@ -6,7 +6,7 @@
          <div>Seguridad</div> 
          <nav class="cabecera__nav">
             <input type="checkbox"  class="cabecera__checkbox"  id="checkbox_toggle" />
-            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+            <label for="checkbox_toggle" class="hamburger"></label>
             <div class="cabecera__menu">
                 <li><a href="#">Sobre nosotros</a></li>
                 <li><a href="#">Qué hacemos</a></li>
@@ -36,18 +36,20 @@ input[type=checkbox]{
       display: inline-grid;
     }
 
-    // &:checked ~ .hamburger {
-    //     background-color: transparent;
-    // }
+    &:checked ~ .hamburger {
+        background-color: transparent;
+    }
 
-    // &:checked ~ .hamburger {
-    //     top: 0;
-    //     transform: rotate(135deg);
-    // }
-    //  &:not(:checked) ~ .hamburger {
-    //     top: 0;
-    //     //transform: rotate(-135deg);
-    // }
+    &:checked ~ .hamburger::before {
+        top: 0;
+        background-color:$color-white;
+        transform: rotate(135deg);
+    }
+    &:checked ~ .hamburger::after {
+        top: 0;
+        background-color:$color-white;
+        transform: rotate(-135deg);
+    }
    
   }
 } 
@@ -56,15 +58,33 @@ input[type=checkbox]{
   position: relative;
   
   @media only screen and (max-width: 900px) {
-      display: block;
-      //position:absolute;
-      font-size: 2.5rem;
-      user-select: none;
+
+        position: relative;
+
+        &,
+        &::before,
+        &::after {
+            width: 3rem;
+            height: 2px;
+            //background-color:rgba(0,0,0,0.5);
+            background-color: $color-white;
+            display: inline-block;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all .2s;
+        }
+
+        &::before { top: -.8rem; }
+        &::after { top: .8rem; }
   }
 }
 
 .contenedor{
- /* Flexbox */
 	display:flex;
 
   background-image:linear-gradient(to right bottom, $color-grey-dark-1, $color-grey-light-1);
@@ -102,7 +122,6 @@ a {
 }
 
 .cabecera{
-  /* Flexbox */
   width: 100%;
 	display: flex;
 
